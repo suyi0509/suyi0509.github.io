@@ -1,13 +1,18 @@
 {
+  "name": "sue.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export"
+  },
+  "license": "ISC",
   "dependencies": {
     "next": "^13.4.13",
     "nextra": "^2.10.0",
     "nextra-theme-docs": "^2.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export"
   }
 }
