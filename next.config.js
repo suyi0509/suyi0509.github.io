@@ -4,9 +4,9 @@ const withNextra = require('nextra')({
   // 给文档中的代码块添加 copy 能力
   defaultShowCopyCode: true,
   // 支持 latex
-  latex: true,
+  // latex: true,
   // 支持静态图片
-  staticImage: true,
+  // staticImage: true,
 });
 
 const nextConfig = {
