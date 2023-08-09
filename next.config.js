@@ -3,6 +3,10 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.jsx',
   // 给文档中的代码块添加 copy 能力
   defaultShowCopyCode: true,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
   // 支持 latex
   // latex: true,
   // 支持静态图片
