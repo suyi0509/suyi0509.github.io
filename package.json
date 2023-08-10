@@ -9,10 +9,20 @@
   },
   "license": "ISC",
   "dependencies": {
+    "i18next": "^23.4.4",
     "next": "^13.4.13",
+    "next-i18next": "^14.0.0",
     "nextra": "^2.10.0",
     "nextra-theme-docs": "^2.10.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.9",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.1.6"
   }
 }

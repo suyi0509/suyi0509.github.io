@@ -1,14 +1,15 @@
-// theme.config.tsx
-// import { DocsThemeConfig } from 'nextra-theme-docs';
+import React from 'react';
 import { useRouter } from 'next/router';
+import { Logo } from '@/components';
 
 const config = {
   project: {
-    // 右上角 Github icon 点击跳转信息
-    link: 'https://github.com/hutaod',
+    link: 'https://github.com/suyi0509', // 右上角按钮指向的Url
   },
   // 文档仓库链接
-  docsRepositoryBase: 'https://github.com/hutaod/hutaod.github.io',
+  docsRepositoryBase: 'https://github.com/suyi0509/suyi0509.github.io',
+  logo: <Logo />,
+
   useNextSeoProps() {
     const { asPath } = useRouter();
     if (asPath !== '/') {
@@ -29,8 +30,8 @@ const config = {
   },
   // 页面底部版权信息
   footer: {
-    text: `MIT 2023 © Hutao.`,
-  },
+    text: `@Sue.`,
+  }
 };
 
 export default config;
