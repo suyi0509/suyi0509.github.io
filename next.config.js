@@ -10,8 +10,11 @@ const withNextra = require('nextra')({
 });
 
 const nextConfig = {
-  // next 工程本身配置内容
   reactStrictMode: true,
+  i18n: {
+    locales: ['zh', 'en'],
+    defaultLocale: 'zh', // 默认语言
+  },
 };
 
 module.exports = withNextra(nextConfig);
