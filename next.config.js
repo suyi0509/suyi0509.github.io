@@ -15,10 +15,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  i18n: {
-    locales: ['zh', 'en'],
-    defaultLocale: 'zh', // 默认语言
-  },
+  // i18n: {
+    // locales: ['zh', 'en'],
+    // defaultLocale: 'zh', // 默认语言
+  // },
 };
 
 module.exports = withNextra(nextConfig);

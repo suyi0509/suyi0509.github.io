@@ -9,6 +9,10 @@ const config = {
   // 文档仓库链接
   docsRepositoryBase: 'https://github.com/suyi0509/suyi0509.github.io',
   logo: <Logo />,
+  search:{
+    placeholder: 'Search...'
+
+  },
 
   useNextSeoProps() {
     const { asPath } = useRouter();
@@ -32,10 +36,10 @@ const config = {
   footer: {
     text: `@Sue.`,
   },
-  i18n: [
-    { locale: 'en', text: 'English' },
-    { locale: 'zh', text: '中文' },
-  ],
+  // i18n: [
+    // { locale: 'en', text: 'English' },
+    // { locale: 'zh', text: '中文' },
+  // ],
 };
 
 export default config;

@@ -1,11 +1,16 @@
 import React from 'react';
+import { Space, Image } from 'antd';
 
 const Logo = () => {
   const a: string = '1';
   return (
-    <React.Fragment>
-      <span className='text-red-600'>Sue{a}</span>
-    </React.Fragment>
+    <Space>
+      <Image
+        className="rounded-full !w-10 !h-10"
+        src="./pic.jpeg"
+      />
+      <span className='font-sans font-bold hover:text-slate-500'>Sue_个人网站</span>
+    </Space>
   );
 };
 

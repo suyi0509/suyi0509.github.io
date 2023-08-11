@@ -1,0 +1,13 @@
+{
+  "index":{
+    "title": "关于"
+  },
+  "knows": {
+    "title": "知识点",
+    "type": "page"
+  },
+  "project": {
+    "title": "项目",
+    "type": "page"
+  }
+}
