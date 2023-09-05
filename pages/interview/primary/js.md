@@ -19,7 +19,7 @@
 ###### Step 2:  typeof的特点(少null多function)
 
 ```js
-- typeof 检测 返回的是对应的数据类型(无 null)
+- typeof 检测 返回的是对应的数据类型
   Undefined、Boolean、Number、String、symbol、bigint、Object、funtion
   
 - 特殊：typeof(null) //object
