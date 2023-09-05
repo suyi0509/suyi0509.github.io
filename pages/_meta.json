@@ -2,8 +2,8 @@
   "*": {
     "type": "page"
   },
-  "index": "关于",
   "knows": "知识点",
   "project": "项目",
-  "interview":"面试宝典"
+  "interview":"面试宝典",
+  "index": "关于"
 }
