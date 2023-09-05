@@ -1,13 +1,8 @@
 {
-  "index": {
-    "title": "关于"
-  },
-  "knows": {
-    "title": "知识点",
+  "*": {
     "type": "page"
   },
-  "project": {
-    "title": "项目",
-    "type": "page"
-  }
+  "knows": "知识点",
+  "project": "项目",
+  "interview":"面试宝典"
 }
