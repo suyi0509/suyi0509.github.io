@@ -5,5 +5,6 @@
   "knows": "知识点",
   "project": "项目",
   "interview":"面试宝典",
-  "index": "关于"
+  "index": "关于",
+  "leetCode": "算法"
 }
