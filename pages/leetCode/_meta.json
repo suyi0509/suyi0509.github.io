@@ -1,0 +1,12 @@
+{
+  "array": "1.数组",
+  "hash": "2.哈希表",
+  "string": "3.字符串",
+  "doublePointer":"4.双指针",
+  "stackQueue":"5.栈和队列",
+  "sort": "6.排序算法",
+  "binaryTree":"7.二叉树",
+  "backtrack":"8.回溯算法",
+  "greedy":"9.贪心算法",
+  "dynamic":"10.动态规划"
+}
