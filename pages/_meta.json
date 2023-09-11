@@ -3,7 +3,5 @@
   "knows": "知识点",
   "project": "项目",
   "interview":"面试宝典",
-  "index": {
-    "title": "关于"
-  }
+  "index": "关于"
 }
