@@ -1,0 +1,94 @@
+## 二分查找
+    
+### 力扣练习题[(戳一戳 ->)](https://leetcode.cn/problems/binary-search/)
+
+> 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+
+##### -示例1
+```
+输入: nums = [-1,0,3,5,9,12], target = 9     
+输出: 4       
+解释: 9 出现在 nums 中并且下标为 4
+```
+##### -示例2
+```
+输入: nums = [-1,0,3,5,9,12], target = 2
+输出: -1
+解释: 2 不存在 nums 中因此返回 -1
+```
+### 思路
+- step1 -定义两个指针，分别指向头和尾
+```
+let left = 0, right = nums.length - 1
+```
+- step2 -查找中间值
+```
+方法1： const midIndex = left + Math.floor((right - left) / 2)
+方法2： const midIndex = (right + left) / 2
+方法1防止溢出，因为两个int值相减，并不会超过int的最大值。两个int相加并不一定
+```
+- step3 -比较nums[i]和target（目标值）的大小
+```
+情况1：nums[i]=target，i就是要寻找的下标
+情况2：nums[i]>target，target还在i的左侧
+情况3：nums[i]<target, target还在i的右侧
+```
+
+### 要求：二分查找
+> 写二分查找，最主要就是对区间的认识.
+  二分法区间一般定义为： 左闭右闭[left,right] 、 左闭右开[left,right)
+  
+- 写法1：左闭右闭(推荐)
+
+```js
+var search = function(nums, target) {
+    // step1: 定义两个指针，分别指向头和尾
+    let left = 0, right = nums.length - 1
+    while(left <= right){
+        // step2：查找中间值
+        const midIndex = left +  Math.floor((right - left) / 2)
+        const midValue = nums[midIndex]
+        // step3：比对midValue和target
+        if(midValue === target){
+            // i就是要寻找的下标
+            return midIndex
+        }else if(midValue > target){
+            // target还在i的左侧,所以 right = midIndex - 1
+            right = midIndex - 1
+        }else if(midValue < target){
+            // target还在i的右侧,所以 left = midIndex + 1
+            left = midIndex + 1
+        }
+    }
+    return -1
+}
+```
+
+- 写法2：左闭右开
+
+```js
+var search = function(nums, target) {
+    // step1: 定义两个指针，分别指向头和 尾的下一个
+    let left = 0, right = nums.length
+    while(left < right){
+        // step2：查找中间值
+        const midIndex = left +  Math.floor((right - left) / 2)
+        const midValue = nums[midIndex]
+        // step3：比对midValue和target
+        if(midValue === target){
+            // i就是要寻找的下标
+            return midIndex
+        }else if(midValue > target){
+            // target还在i的左侧,所以 right = midIndex （开区间）
+            right = midIndex
+        }else if(midValue < target){
+            // target还在i的右侧,所以 left = midIndex + 1
+            left = midIndex + 1
+        }
+    }
+    return -1
+}
+```
+> 总结： 
+左闭右闭有等于，闭合记得加减1，
+左闭右开不等于，右开记得不减1,
