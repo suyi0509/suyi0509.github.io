@@ -10,6 +10,7 @@ const withNextra = require('nextra')({
 });
 
 const nextConfig = {
+  output: 'export',
   // next 工程本身配置内容
   reactStrictMode: true,
   images: {
