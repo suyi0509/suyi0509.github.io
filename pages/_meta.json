@@ -1,10 +1,9 @@
 {
-  "*": {
-    "type": "page"
-  },
   "knows": "知识点",
   "leetCode": "算法",
   "project": "项目",
   "interview":"面试宝典",
-  "index": "关于"
+  "index": {
+    "title": "关于"
+  }
 }
