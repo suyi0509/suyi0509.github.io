@@ -1,5 +1,8 @@
 {
-  "index": "My Homepage",
+  "*": {
+    "type": "page"
+  },
+  "index": "首页",
   "leetCode": "算法",
   "knows": "知识点",
   "interview":"面试宝典"
