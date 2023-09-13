@@ -1,9 +1,18 @@
 {
-  "*": {
-    "type": "page"
+  "index": {
+    "type": "page",
+    "title":"首页"
   },
-  "index": "首页",
-  "leetCode": "算法",
-  "knows": "知识整理",
-  "interview":"面试宝典"
+  "leetCode": {
+    "type": "page",
+    "title":"算法"
+  },
+  "knows": {
+    "type": "page",
+    "title":"知识整理"
+  },
+  "interview":{
+    "type": "page",
+    "title":"面试宝典"
+  }
 }
