@@ -28,7 +28,7 @@
 - 特殊：1.typeof(function(){}) // function  2.typeof(Array) // function 
   原因：typeof在判断引用类型时，在ECMA定义包含[[call]], 有=> function, 无 => object
 ```
-
+--
 ###### Step 3： instanceof的特点(返回值是Boolean，只有ture、fasle)
 ```js
 - A instanceof B 去检测，A对象是否是由B对象实例化出来的
