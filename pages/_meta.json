@@ -1,4 +1,7 @@
 {
+  "*":{
+    "type": "page"
+  },
   "index": {
     "type": "page",
     "title":"首页"
