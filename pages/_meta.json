@@ -3,13 +3,13 @@
     "type": "page",
     "title":"首页"
   },
+  "knows": {
+    "type": "page",
+    "title":"知识"
+  },
   "leetCode": {
     "type": "page",
     "title":"算法"
-  },
-  "knows": {
-    "type": "page",
-    "title":"知识整理"
   },
   "interview":{
     "type": "page",
