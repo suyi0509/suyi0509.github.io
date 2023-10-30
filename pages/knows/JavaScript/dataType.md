@@ -54,6 +54,20 @@ string、number、boolean、null、undefined、symbol(ES6新增)、bigInt(ES6新
 - instanceof检测是在原型链上完成的，所以只能检测引用数据类型
 - 当前对象如果没有，就沿着原型链往上找，找到原型链尽头，也就是原型为 null 的对象
 
+```js
+function myInstanceof(left, right) {
+    // typeof false
+    if (typeof left !== 'object' || left === null) return false;
+    // getProtypeOf Object API
+    let proto = Object.getPrototypeOf(left);
+    while (true) {
+        if (proto === null) return false;
+        if (proto === right.prototype) return true;// true
+        proto = Object.getPrototypeof(proto);
+    }
+}
+```
+
 ##### 特殊点1 instanceof 不能检测基本数据类型
 - 原因：instanceof检测需要在原型链上完成，而基本数据类型没有原型和原型链，因此对他们来说是无效的
 - 1 instanceof Number //fasle  -Number是内置对象 
@@ -141,8 +155,13 @@ Object.prototype.toString.call(obj) // [object Bar]
 ```
 
 ##### 获取数据类型function
-```
+```js
 const getDataType = (data) => {
+  let type = typeof obj;
+  if (type !== "object") { // typeof
+    return type;
+  }
+  // 如果类型是 object
   return Object.prototype.toString.call(data)
     .slice(8, -1)
     .toLocaleLowerCase()
