@@ -307,3 +307,49 @@ const cat = new Cat('mm')
 cat.sayName()
 ```
 原型上添加方法，这时this指向window，箭头函数不能作为构建函数
+
+
+### 优先级
+- 显式绑定 >> 隐式绑定
+```js
+function foo(){
+    console.log(this.a)
+}
+
+var obj1 = {
+    a:1,
+    foo:foo
+}   
+
+var obj2 = {
+    a:2,
+    foo:foo
+}
+
+obj1.foo() // 1
+obj2.foo() // 2
+
+obj1.foo.cal(obj2) // 2
+obj2.foo.cal(obj1) // 1
+```
+
+- new绑定 >> 显式绑定
+```js
+function foo(something){
+    this.a = something
+}
+
+var obj1 = {}
+var bar = foo.bind(obj1)
+bar(2)
+console.log(obj1.a) //2
+// bar被绑到obj1上
+
+var obj2 = new bar(3)
+// new了bar   bar就会被绑定在obj2上
+console.log(obj2.a) //3
+
+bar(2)
+```
+
+总： 箭头函数 > new绑定 > 显式绑定 > 隐式绑定 > 默认

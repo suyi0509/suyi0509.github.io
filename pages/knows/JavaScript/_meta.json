@@ -10,5 +10,7 @@
   "executionContextSummary": "9.执行上下文总结分析",
   "closure": "10.闭包",
   "DOM": "11.DOM",
-  "BOM": "12.BOM"
+  "BOM": "12.BOM",
+  "bind": "13.bind、call、apply",
+  "New": "14.new"
 }
