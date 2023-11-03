@@ -317,3 +317,31 @@ Function.prototype.myBind = function(context){
 
 - 就是说当 bind 返回的函数作为构造函数的时候，bind 时指定的 this 值会失效，但传⼊的参数依然⽣
 效
+
+实例说明
+```js
+var value = 2
+var foo = {
+    value:1
+}
+
+function bar(name,age){
+    this.habit = 'shopping'
+    console.log(this.value)
+    console.log(name)
+    console.log(age)
+}
+
+bar.prototype.friend = 'kevin'
+
+var bindFn = bar.bind(foo, 'sue')
+
+var obj = new bindFn('18')
+
+// undefined 无论我们在全局或者在foo中都声明了value值，但依旧返回undefined，这说明绑定的this失效了
+// sue
+// age
+
+console.log(obj.habit) // shopping
+console.log(obj.friend) // kevin
+```

@@ -1,5 +1,7 @@
 ## 执行上下文
 
+### 概念
+
 #### 顺序执行
 - 写过js的同学们都会有直观的印象，那就是顺序执行
 
@@ -37,13 +39,17 @@ foo(); // foo2
 
 ---
 
-### 可执行代码
-可执行代码有三种
-- 1.全局代码
-- 2.函数代码
-- 3.eval代码
+#### 可执行代码
+执行上下文分为3种类型
+1. 全局执行上下文： 只有一个，全局对象，浏览器中就是window
+2. 函数执行上下文： 无数个，当函数被调用时就会被创建，每次调用都会创建一个新的
+3. Eval函数执行上下文：指运行在eval函数中的代码，很少而且不建议使用
 
-### 执行上下文栈
+![图片](../../../public/js08.png)
+
+- 可以有任意多个函数上下文，每次调用函数创建一个新的上下文，会创建一个私有作用域，函数内部声明的任何变量，都不能在当前函数作用域外部直接访问
+
+#### 执行上下文栈
 
 JS为了管理 执行上下文 ，创建了 **执行上下文栈（Execution context stack， ECS）**
 
@@ -52,7 +58,77 @@ JS为了管理 执行上下文 ，创建了 **执行上下文栈（Execution con
 ```js
 ECStack = []  // 模拟执行上下文栈
 ```
+---
 
+### 生命周期
+执行上下文的生命周期包括三个阶段： 创建阶段 - 执行阶段 - 回收阶段
+
+#### 1.创建阶段
+- 创建阶段就是函数被调用，但未执行任何内部代码之前
+
+创建阶段
+伪代码模拟
+
+```
+ExecutionContext = {
+    ThisBinding = <this value>, // 确定this
+    LexicalEnvironment: {...} // 词法环境
+    VariableEnvironment： {...} // 变量环境
+}
+```
+
+1. 确定this的值,也被称为 This Binding
+   - this的值定义时不能被确认，只有在执行的时候才能被确认
+2. 词法环境(LexicalEnvironment)组件被创建
+   - 全局环境：是一个没有外部环境的词法环境，其外部环境为null，有一个全局对象，this 的值指向这个全局对象
+   - 函数环境：用户在函数中定义的变量被存储在环境记录中，包含了arguments对象，外部环境的引用可以是全局环境，也可以是包含内部函数的外部函数环境
+   - 伪代码模拟
+   ```
+   GlobalExectionContext = {
+        LexicalEnvironment:{  // 词法作用
+            EnvironmentRecord:{//  环境记录
+                Type: "Object",  //  全局对象类型
+                outer: <null> // 对外部环境的引用
+            }
+        }
+   }
+
+   FunctionExectionContext = {
+        LexicalEnvironment:{   // 词法作用
+            EnvironmentRecord:{ //  环境记录
+                Type: "Declarative,  //  全局对象类型
+                outer: <Global or outer function environment reference>  - 标记符绑定
+            }
+        }
+   }
+
+   ```
+3. 变量环境(VariableEnvironment)组件被创建
+   - 变量环境也是一个词法环境，因为这时候已经具有上面定义的词法环境的所有属性
+   - 在es6中,词法环境和变量环境的区别是: 词法存储函数声明和变量（let和const）绑定，而变量仅用于存储变量（var）绑定
+   - 举个例子：
+    ```js
+    let a = 20
+    const b = 30
+    var c
+
+    function add(e,f){
+        var g = 20
+        return e  + f + g
+    }
+
+    c= add(a,b)
+    ```
+
+#### 2.执行阶段
+#### 3.回收阶段
+
+
+
+
+
+
+---
 ##### 1. 全局代码
 > JS开始执行代码，首先遇到就是全局代码。所以在初始化的时候会向 执行上下文栈 压入一个全局执行上下文，我们用 globalContext
 
