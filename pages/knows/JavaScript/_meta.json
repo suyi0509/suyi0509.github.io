@@ -12,5 +12,8 @@
   "DOM": "11.DOM",
   "BOM": "12.BOM",
   "bind": "13.bind、call、apply",
-  "New": "14.new"
+  "New": "14.new",
+  "eventModel": "15.事件模型",
+  "eventProxy": "16.事件代理",
+  "copy": "17.浅拷贝和深拷贝"
 }

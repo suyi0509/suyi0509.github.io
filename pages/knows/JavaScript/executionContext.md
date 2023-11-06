@@ -49,15 +49,6 @@ foo(); // foo2
 
 - 可以有任意多个函数上下文，每次调用函数创建一个新的上下文，会创建一个私有作用域，函数内部声明的任何变量，都不能在当前函数作用域外部直接访问
 
-#### 执行上下文栈
-
-JS为了管理 执行上下文 ，创建了 **执行上下文栈（Execution context stack， ECS）**
-
-为了更清晰明了，我们定义数组 去模拟 **执行上下文栈** 的行为
-
-```js
-ECStack = []  // 模拟执行上下文栈
-```
 ---
 
 ### 生命周期
@@ -120,14 +111,67 @@ ExecutionContext = {
     c= add(a,b)
     ```
 
+    ```
+    // 全局执行上下文
+    GlobalExectionContext = {
+        ThisBinding: <Global Object>,
+        LexicalEnvironment:{ // 词法环境(let const func)
+            EnvironmentRecord：{
+                Type: "Object",
+                a:<uninitialized>,
+                b:<uninitialized>,
+                add:<func>
+            },
+            outer:<null>
+        },
+        VariableEnvironment:{ // 变量环境(var)
+            EnvironmentRecord：{
+                Type:"Object",
+                c: undefined
+            }
+            outer:<null>
+        }
+    }
+
+    // 函数执行上下文
+    FunctionExectionContext = {   
+        ThisBinding: <Global Object>,
+        LexicalEnvironment: {
+            EnvironmentRecord:{
+                Type:"Declarative",
+                Arguments:{0: a, 1: b, length: 2}
+            },
+            outer: <GlobalLexicalEnvironment>
+        },
+
+        VariableEnvironment:{
+            EnvironmentRecord:{
+                Type:"Declarative",
+                g: undefined
+            },
+            outer:<GlobalLexicalEnvironment>
+        }
+    }
+
+    ```
+
 #### 2.执行阶段
+在执行阶段，执行变量赋值、代码执行。如果JS引擎在源代码中声明得实际位置找不到变量得值，就会被赋值为undefined
+
 #### 3.回收阶段
+执行上文出栈等待虚拟机回收执行上下文
 
 
+---
+#### 执行上下文栈（LIFO）
+- 后进先出结构
+JS为了管理 执行上下文 ，创建了 **执行上下文栈（Execution context stack， ECS）**
 
+为了更清晰明了，我们定义数组 去模拟 **执行上下文栈** 的行为
 
-
-
+```js
+ECStack = []  // 模拟执行上下文栈
+```
 ---
 ##### 1. 全局代码
 > JS开始执行代码，首先遇到就是全局代码。所以在初始化的时候会向 执行上下文栈 压入一个全局执行上下文，我们用 globalContext

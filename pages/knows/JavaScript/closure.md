@@ -23,6 +23,89 @@ function outerFunction() {
     - (比如上文的 checkScope 已经销毁,但是我们依旧可以沿着作用域链找到)
 - 2. 在代码中引用了自由变量
 
+---
+使用场景：
+- 创建私有变量
+- 延长变量的生命周期
+一般函数的词法环境再函数返回后就被销毁，但是闭包依旧会保存对创建时所在的词法环境的引用。
+就是即使创建时所在的执行上下文被销毁，但创建时所在的词法环境依旧存在，以达到延长变量的生命周期的目的。
+
+1. 场景1：闭包柯里化函数
+> 目的：避免频繁调用具有相同参数函数的同时，又能够轻松重用
+柯里化示例
+```js
+// 求长方形面积的函数
+function getArea(width, height){
+    return width * height
+}
+// 如果我们老是碰到长方形的宽是10
+// 就可以使用闭包柯里化来计算面积函数
+function getArea(width){
+    return (height) => {
+        return width * height
+    }
+}
+
+const getTenWidthArea = getArea(10)
+const getAreaComputer = getTenWidthArea(20)
+```
+2. 场景2：闭包模拟私有方法
+```js
+var makeCounter = (function(){
+    var privateCounter = 0;
+    function changeBy(val){
+        privateCounter += val
+    }
+    return {
+        increment: function(){
+            changeBy(1)
+        },
+        decrement: function(){
+            changeBy(-1)
+        },
+        value:function(){
+            return privateCounter
+        }
+    }
+})()
+
+var counter1 = makeCounter()
+var counter2 = makeCounter()
+console.log(counter1.value() ) // 0
+counter1.increment()
+counter1.increment()
+console.log(counter1.value() ) // 2
+counter1.decrement()
+console.log(counter1.value() ) // 1
+console.log(counter2.value() ) // 0
+```
+
+注意：再创建新的对象或者类时，方法通常应该关联于对象的原型，而不是定义到对象的构造器中。
+原因在于：每个对象的创建，方法都会被重新赋值
+```js
+function MyObject(name,message){
+    this.name = name.toString()
+    this.message = message.toString()
+    this.getName = function(){
+        return this.name
+    }
+    this.getMessage = function(){
+        return this.message
+    }
+}
+// 这里我们并没有利用到闭包的好处，所以应该避免使用闭包
+function MyObject(name,message){
+    this.name = name.toString()
+    this.message = message.toString()
+}
+MyObject.prototype.getName = function(){
+    return this.name
+}
+MyObject.prototype.getMessage = function(){
+    return this.message
+}
+```
+---
 
 ### 思考
 ```js
