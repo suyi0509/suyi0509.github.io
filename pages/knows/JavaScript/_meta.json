@@ -15,5 +15,8 @@
   "New": "14.new",
   "eventModel": "15.事件模型",
   "eventProxy": "16.事件代理",
-  "copy": "17.浅拷贝和深拷贝"
+  "copy": "17.浅拷贝和深拷贝",
+  "funcCache":"18.函数缓存",
+  "eventLoop":"19.事件循环",
+  "storage":"20.存储方式"
 }
