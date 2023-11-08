@@ -1,21 +1,25 @@
 {
-  "*":{
+  "*": {
     "type": "page"
   },
   "index": {
     "type": "page",
-    "title":"首页"
+    "title": "首页"
   },
   "knows": {
     "type": "page",
-    "title":"知识"
+    "title": "知识"
   },
   "leetCode": {
     "type": "page",
-    "title":"算法"
+    "title": "算法"
   },
-  "interview":{
+  "project": {
     "type": "page",
-    "title":"面试宝典"
+    "title": "项目"
+  },
+  "interview": {
+    "type": "page",
+    "title": "面试宝典"
   }
 }
