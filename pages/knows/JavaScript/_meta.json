@@ -19,5 +19,9 @@
   "funcCache":"18.函数缓存",
   "eventLoop":"19.事件循环",
   "storage":"20.存储方式",
-  "ajax":"21.ajax原理"
+  "ajax":"21.ajax原理",
+  "loadsh":"22.防抖节流",
+  "funcProg":"23.函数式编程",
+  "arrMethod":"24.数组方法",
+  "memoryLeak":"25.内存泄漏"
 }
