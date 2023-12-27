@@ -75,8 +75,216 @@ console.log(child1.getName()) // 不存在 报错
 
 #### 3.组合继承
 把原型链继承和构造函数继承结合起来
+```js
+function Parent3() {
+    this.name = 'parent3';
+    this.play = [1, 2, 3];
+}
+Parent3.prototype.getName = function () {
+    return this.name;
+}
+function Child3() {
+    Parent3.call(this);
+    this.type = 'child3';
+}
+Child3.prototype = new Parent3();
+Child3.prototype.constructor = Child3;
+var s3 = new Child3();
+var s4 = new Child3();
+s3.play.push(4)
+console.log(s3,s4)
+/** 
+ *  ------------------>s3
+    {
+    "name": "parent3",
+    "play": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "type": "child3"
+    }
 
+    ---------------------> s4
+    {
+    "name": "parent3",
+    "play": [
+        1,
+        2,
+        3
+    ],
+    "type": "child3"
+    }
+ */
+```
 
 #### 4.原型式继承
+借助Object.create方法实现对普通对象得继承
+
+```js
+let parent = {
+    name:'parent',
+    firends:['p1','p2','p3'],
+    getName:function(){
+        return this.name
+    }
+}
+
+const child1 = Object.create(parent)
+child1.name = 'child1';
+child1.firends.push('c1')
+
+const child2 = Object.create(parent)
+child2.firends.push('c2')
+
+console.log(child1,child2)
+console.log(child1.getName()) // child1
+
+/**
+-------------------------->child1
+name: "child1"
+[[Prototype]]:{
+    firends: Array(5):["p1","p2","p3","c1","c2"]
+    getName: ƒ ()
+    name: "parent"
+[[Prototype]]: Object
+
+-------------------------->child2
+[[Prototype]]:{
+    firends: Array(5):["p1","p2","p3","c1","c2"]
+    getName: ƒ ()
+    name: "parent"
+[[Prototype]]: Object
+ */
+```
+Object.create方法是实现浅拷贝，多个引用实例的引用类型指向相同的内存，导致篡改
+
 #### 5.寄生式继承
+```js
+let parent = {
+    name:'parent',
+    firends:['p1','p2','p3'],
+    getName:function(){
+        return this.name
+    }
+}
+
+function clone(original){
+    let clone = Object.create(original)
+    clone.getFriends = function(){
+        return this.firends
+    };
+    return clone
+}
+
+let child1 = clone(parent)
+let child2 = clone(parent)
+child1.name = 'child1'
+child1.firends.push('c1')
+child2.name = 'child2'
+child2.firends.push('c2')
+console.log(child1,child2)
+console.log(child1.getFriends()) // ["p1","p2","p3","c1","c2"]
+
+
+/**
+-------------------------->child1
+name: "child1",
+getFriends: ƒ ()
+[[Prototype]]:{
+    firends: Array(5):["p1","p2","p3","c1","c2"]
+    getName: ƒ ()
+    name: "parent"
+[[Prototype]]: Object
+
+-------------------------->child2
+name: "child2",
+getFriends: ƒ ()
+[[Prototype]]:{
+    firends: Array(5):["p1","p2","p3","c1","c2"]
+    getName: ƒ ()
+    name: "parent"
+[[Prototype]]: Object
+ */
+```
+寄生式继承，和原型式继承是一样的，也会导致篡改
+
 #### 6.寄生组合式继承
+所有方式里面相对最优得继承方式
+```js
+function clone(parent,child){
+    child.prototype = Object.create(parent.prototype)
+    child.prototype.constructor = child
+}
+
+function Parent(){
+    this.name = 'parent'
+    this.play = [1,2,3]
+}
+
+Parent.prototype.getName = function(){
+    return this.name
+}
+
+function Child(){
+    Parent.call(this)
+    this.friends = 'child'
+}
+
+clone(Parent,Child)
+
+Child.prototype.getFriends = function(){
+    return this.friends
+}
+
+let person = new Child()
+console.log(person)
+/** 
+ friends: "child"
+ name: "parent"
+ play: (3) [1, 2, 3]
+ [[Prototype]]: Parent
+ */
+console.log(person.getName()) // parent
+console.log(person.getFriends()) // child
+```
+属性得到了继承，方法正常输出
+
+- extends也是采用寄生组合继承方式
+```js
+// 利用babel工具转换
+class Person{
+    constructor(name){
+        this.name = name
+    }
+    // 原型方法
+    // Person.prototype.getName = function(){}
+    getName = function(){
+        console.log('Person',this.name)
+    }
+}
+
+class Gamer extends Person {
+    constructor(name,age){
+        // 子类中存在构造函数，则需要在使用this前使用super()
+        super(name)
+        this.age = age
+    }
+}
+
+const asuna = new Gamer('apple',20)
+asuna.getName() // 'Person apple'
+```
+
+
+## 总结
+- 不使用object.create
+    - 构造函数继承
+    - 原型链继承
+- 使用object.create
+    - 原型式继承
+    - 寄生式继承
+
+构造函数继承 + 原型链继承 = 组合继承
+原型式继承 + 寄生式继承 + 组合继承 = 寄生组合继承 （类似es6 extends）
