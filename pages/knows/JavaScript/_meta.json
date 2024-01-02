@@ -24,5 +24,6 @@
   "funcProg":"23.函数式编程",
   "arrMethod":"24.数组方法",
   "memoryLeak":"25.内存泄漏",
-  "extends":"26.继承"
+  "extends":"26.继承",
+  "promise":"27.Promise"
 }
