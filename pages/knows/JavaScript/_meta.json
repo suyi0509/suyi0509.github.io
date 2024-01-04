@@ -1,5 +1,5 @@
 {
-  "var": "1.定义声明",
+  "var": "1.定义声明(ES6)",
   "dataType": "2.数据类型",
   "prototype": "3.原型和原型链",
   "scope": "4.作用域",
@@ -25,6 +25,6 @@
   "arrMethod":"24.数组方法",
   "memoryLeak":"25.内存泄漏",
   "extends":"26.继承",
-  "promise":"27.Promise",
-  "module":"28.module"
+  "promise":"27.Promise(ES6)",
+  "module":"28.module(ES6)"
 }
