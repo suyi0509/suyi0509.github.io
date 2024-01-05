@@ -28,5 +28,6 @@
   "promise":"27.Promise(ES6)",
   "module":"28.module(ES6)",
   "Generator": "29.Generator(ES6)",
-  "Decorator": "30.Decorator(ES6)"
+  "Decorator": "30.Decorator(ES6)",
+  "SetMap":"31.Set,Map,WeakSet,WeakMap(ES6)"
 }
