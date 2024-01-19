@@ -19,4 +19,4 @@
 4. 避免使用table布局，table中每个元素的大小以及内容的改动，都会导致整个table回流
 5. 对于复杂的动画，其设置position： fixed / absolute，尽可能脱离文档流，从而减少对其他元素的影响
 6. CSS3硬件加速，可以让transform、opacity、filters 这些动画不会引起回流重绘
-7. 7.避免使用CSS的JS表达式
+7. 避免使用CSS的JS表达式
