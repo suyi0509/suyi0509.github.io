@@ -1,4 +1,7 @@
 {
   "osi": "1.OSI七层模型",
-  "tcp":"TCP/IP协议"
+  "tcp":"2.TCP/IP协议",
+  "post":"3.GET 和 POST的区别",
+  "link":"4.三次握手四次挥手",
+  "header":"5.常见的请求头"
 }
