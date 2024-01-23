@@ -3,5 +3,8 @@
   "tcp":"2.TCP/IP协议",
   "post":"3.GET 和 POST的区别",
   "link":"4.三次握手四次挥手",
-  "header":"5.常见的请求头"
+  "header":"5.常见的请求头",
+  "httpCode":"6.http状态码",
+  "https":"7.HTTP与HTTPS",
+  "versions":"8.HTTP1.0/1.1/2.0"
 }
