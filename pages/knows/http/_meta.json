@@ -6,5 +6,6 @@
   "header":"5.常见的请求头",
   "httpCode":"6.http状态码",
   "https":"7.HTTP与HTTPS",
-  "versions":"8.HTTP1.0/1.1/2.0"
+  "versions":"8.HTTP1.0/1.1/2.0",
+  "safe":"9.HTTPS的安全性"
 }
