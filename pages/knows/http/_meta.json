@@ -8,5 +8,7 @@
   "https":"7.HTTP与HTTPS",
   "versions":"8.HTTP1.0/1.1/2.0",
   "safe":"9.HTTPS的安全性",
-  "cdn":"10.CDN"
+  "cdn":"10.CDN",
+  "webSocket":"11.WebSocket",
+  "url":"12.url响应步骤"
 }
