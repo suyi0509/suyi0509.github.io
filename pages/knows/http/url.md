@@ -74,3 +74,6 @@ https：// 1.511.154.102:80/home?id=1234#test
 4. 布局render树（Layout/reflow），负责各元素尺寸、位置的计算
 5. 绘制render树（paint），绘制页面像素信息
 6. 浏览器会将各层的信息发送给GPU，GPU会将各层合成，显示在屏幕上
+
+
+![图片](../../../public/http12.png)
