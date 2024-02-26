@@ -1,0 +1,8 @@
+{
+    "basic": "1.ts基础知识",
+    "dataType":"2.数据类型",
+    "interface": "3.interface接口",
+    "class":"4.class类",
+    "enum":"5.enum枚举",
+    "t":"6.<T>泛型"
+}
