@@ -9,6 +9,7 @@
   "versions":"8.HTTP1.0/1.1/2.0",
   "safe":"9.HTTPS的安全性",
   "cdn":"10.CDN",
-  "webSocket":"11.WebSocket",
-  "url":"12.url响应步骤"
+  "dns":"11.DNS",
+  "webSocket":"12.WebSocket",
+  "url":"13.url响应步骤"
 }
