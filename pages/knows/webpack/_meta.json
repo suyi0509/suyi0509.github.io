@@ -3,5 +3,8 @@
     "hmr":"2.热更新",
     "step":"3.构建流程",
     "proxy":"4.proxy的工作原理",
-    "loader":"5.loader"
+    "loader":"5.loader",
+    "plugin":"6.plugin",
+    "rewrite":"7.编写",
+    "optimize":"8.优化"
 }
