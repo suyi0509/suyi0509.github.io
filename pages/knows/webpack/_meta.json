@@ -6,5 +6,6 @@
     "loader":"5.loader",
     "plugin":"6.plugin",
     "rewrite":"7.编写",
-    "optimize":"8.优化"
+    "optimize":"8.优化",
+    "tool":"9.打包工具"
 }
