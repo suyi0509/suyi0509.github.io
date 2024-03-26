@@ -3,5 +3,6 @@
   "css": "CSS",
   "chrome":"Chrome",
   "http":"HTTP",
-  "Typescript":"Typescript"
+  "Typescript":"Typescript",
+  "React":"React"
 }
