@@ -3,5 +3,7 @@
     "differ":"2.类组件和函数组件",
     "control":"3.受控组件和非受控组件",
     "event":"4.React事件绑定的方式",
-    "lifeCycle":"5.React的生命周期"
+    "lifeCycle":"5.React的生命周期",
+    "communication":"6.React组件通信",
+    "higherOrder":"7.高阶组件"
 }

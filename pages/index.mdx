@@ -1,0 +1,34 @@
+import React from 'react';
+import { Space, Image, Row, Col } from 'antd';
+
+export default function Home({ Component, pageProps }) {
+
+    const skills = [
+        { text: 'JavaScript', bgColor: 'bg-blue-500' },
+        { text: 'TypeScript', bgColor: 'bg-pink-500' },
+        { text: 'HTML5', bgColor: 'bg-cyan-500' },
+        { text: 'Vue', bgColor: 'bg-purple-500' },
+        { text: 'React', bgColor: 'bg-blue-500' },
+        { text: 'Taro', bgColor: 'bg-sky-500' },
+        { text: 'Element', bgColor: 'bg-purple-800' },
+        { text: 'Antd', bgColor: 'bg-rose-500' }
+    ]
+
+    return (
+        <div>
+            <div className='text-center'>
+                <Image
+                    className="rounded-full !w-40 !h-40 m-6"
+                    src="https://suyi0509.github.io/pic.jpeg"
+                />
+                <div className='text-3xl m-6'> Hello, My name is Sue </div>
+                <div className='text-lg m-6'> Welcome to my homepage </div>
+            </div>
+
+            <div className='text-center flex justify-center fixed  bottom-40'>
+                {skills.map((item) => <div className={`text-white ${item.bgColor} px-1`}>{item.text}</div>)}
+            </div>
+        </div>
+
+    );
+}

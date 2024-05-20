@@ -9,7 +9,7 @@ const Logo = () => {
         className="rounded-full !w-10 !h-10"
         src="https://suyi0509.github.io/pic.jpeg"
       />
-      <span className='font-sans font-bold hover:text-slate-500'>Sue_个人网站</span>
+      <span className='font-sans font-bold hover:text-slate-500'>Sue</span>
     </Space>
   );
 };

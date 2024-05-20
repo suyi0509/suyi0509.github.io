@@ -11,9 +11,8 @@ const config = {
   logo: <Logo />,
   search:{
     placeholder: 'Search...'
-
   },
-
+  darkMode: true,
   useNextSeoProps() {
     const { asPath } = useRouter();
     if (asPath !== '/') {

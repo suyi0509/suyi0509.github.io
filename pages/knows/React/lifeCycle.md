@@ -7,6 +7,7 @@
 - 更新阶段
 - 卸载阶段
 
+[图片](../../../public/react2.png)
 
 ### 1. 创建阶段
 创建阶段包含一下几个生命周期方法：
@@ -29,10 +30,34 @@
 
 - getSnapshotBeforeUpdate: 周期函数在render后执行，执行得时候DOM元素还未被更新，该方法返回一个Snapshot值，作为componentDidUpdate第三参数传入
 ```js
-getSnapshotBeforeUpdate
-```
+getSnapshotBeforeUpdate(prevProps,prevState){
+    console.log('### 我进来了 getSnapshotBeforeUpdate')
+    return '123'
+}
 
-- 
+componentDidUpdate(prevProps,prevState,snapshot){
+    console.log('### 我又进来了 componentDidUpdate',snapshot) // 123
+}
+```
+ 
 - componentDidUpdate
+执行时机：组件更新结束后触发
+在该方法时，可以根据前后的props和state的变化做出相应的操作，如获取数据、修改DOM样式
+
 
 ### 3. 卸载阶段
+- componentWillUnmount
+用于组件卸载前，清理一些注册是监听事件或者取消订阅的网络请求等，一旦一个组件实例被卸载，其不会被再次挂载，只可能是被重新创建
+
+
+新版生命周期减少了以下三种方法：
+- componentWillMount
+- componentWillReceiveProps
+- componentWillUpdate
+其中三个方法都存在，只是前者加上了 UNSAFE_ 前缀
+
+新增了两个生命周期函数:
+- getDerivedStateFromProps
+- getSnapshotBeforeUpdate
+
+

@@ -4,5 +4,6 @@
   "chrome":"Chrome",
   "http":"HTTP",
   "Typescript":"Typescript",
-  "React":"React"
+  "React":"React",
+  "webpack":"Webpack"
 }
