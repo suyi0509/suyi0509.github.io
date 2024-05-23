@@ -21,5 +21,21 @@
   "interview": {
     "type": "page",
     "title": "面试宝典"
+  },
+  "about": {
+    "type": "menu",
+    "title": "关于",
+    "items": {
+      "cv": {
+        "type": "doc",
+        "title": "我的简历",
+        "href": "/about/cv"
+      },
+      "me": {
+        "type": "doc",
+        "title": "关于我",
+        "href": "/about/me"
+      }
+    }
   }
 }
