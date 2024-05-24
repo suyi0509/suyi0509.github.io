@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  .ant-image-mask {
+    cursor: url("https://suyi0509.github.io/icon/cursor-click.png"), auto !important;
+  }
+  a {
+    cursor: url("https://suyi0509.github.io/icon/cursor-click.png"), auto !important;
+  }
+  button {
+    cursor: url("https://suyi0509.github.io/icon/cursor-click.png"), auto !important;
+  }
+  cursor: url("https://suyi0509.github.io/icon/cursor-click.png"), auto !important;
+}
+
+/** -------------动态--------------*/
 
 /** 上移  */
 @keyframes slide-up {
@@ -20,6 +34,15 @@
 }
 
 
-.cutest{
-  cursor: url('https://suyi0509.github.io/icon/cursor-click.png'), pointer;
+@keyframes gradient {  
+  0% {background-position: 100% 50%;}  
+  50% {background-position: 0% 50%;}  
+  100% {background-position: 100% 50%;}  
 }
+.gradientText {
+  background: linear-gradient(to right, #fff, #d4237a);  
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;  
+  animation: gradient 3s ease infinite;  
+  background-size: 200% 100%;  
+}  
