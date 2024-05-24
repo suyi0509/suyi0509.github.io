@@ -10,15 +10,27 @@ const withNextra = require('nextra')({
 });
 
 const nextConfig = {
-  output: 'export',
   // next 工程本身配置内容
+  output: 'export',
   reactStrictMode: true,
   images: {
     unoptimized: true,
   },
   // i18n: {
-    // locales: ['zh', 'en'],
-    // defaultLocale: 'zh', // 默认语言
+  // locales: ['zh', 'en'],
+  // defaultLocale: 'zh', // 默认语言
+  // },
+  // webpack: (config) => {
+  //   config.module.rules.push({
+  //     test: /\.scss$/,
+  //     use: [
+  //       'style-loader', // 将 JS 字符串生成为 style 节点
+  //       'css-loader', // 将 CSS 转化成 CommonJS 模块
+  //       'sass-loader', // 将 Sass 编译成 CSS，需要`node-sass`或`sass`
+  //     ],
+  //   });
+    
+  //   return config;
   // },
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space, Image, Row, Col } from 'antd';
 import Link from "next/link"
-import icon1 from '../public/icon/icon1.png'
+
 
 export default function Home({ Component, pageProps }) {
 
@@ -23,7 +23,7 @@ export default function Home({ Component, pageProps }) {
     ]
 
     return (
-        <div>
+        <div className='slide-up-animation cursor-[url(https://suyi0509.github.io/icon/cursor-click.cur),auto]'>
             <div className='text-center mt-12'>
                 <Image
                     className="rounded-full !w-44 !h-44 m-6"
@@ -41,7 +41,7 @@ export default function Home({ Component, pageProps }) {
                             src={`https://suyi0509.github.io/icon/icon${index + 1}.png`}
                             preview={false}
                         />
-                        <div className='font-semibold mt-6'>{item.label}</div>
+                        <div className='font-semibold mt-6'><span>{item.label}</span></div>
                     </Link>
                 })}
             </div>

@@ -4,7 +4,8 @@ const tailwind = {
     './components/**/*.{js,ts,jsx,tsx,md,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   variants: {},
   plugins: [],
