@@ -1,0 +1,55 @@
+import React, { useEffect } from 'react';
+import { Space, Image, Row, Col } from 'antd';
+import Link from "next/link"
+import { SueFrame } from "../../components/index"
+
+
+export default function index({ Component, pageProps }) {
+    useEffect(() => {
+        window.addEventListener('scroll', function () {
+            var scrollPosition = window.scrollY;
+            const index = Math.round(scrollPosition / 100)
+            let elements = document.querySelectorAll('.parallax-title1, .parallax-title2, .parallax-title3');
+            let boxElements = document.querySelectorAll('.parallax-context1, .parallax-context2, .parallax-context3');
+            elements.forEach(element => element.classList.remove('active'));
+            boxElements.forEach(element => element.classList.remove('active'));
+            for (let i = 0; i < index && i < elements.length; i++) {
+                elements[i].classList.add('active');
+                boxElements[i].classList.add('active');
+            }
+        });
+    }, [])
+
+    const aboutMeArr = [
+        {
+            title: '一、自我介绍', context: () => {
+                return (<div>
+                    <div>Hi~，我是Sue。欢迎来到我的秘密基地，很开心在这里遇见你。接下来讲述我的故事...</div>
+                    <div></div>
+                </div>)
+            }
+        }, {
+            title: '二、工作经历', context: () => {
+                return (<div>
+                <div>我目前有过2段正式的工作经历，目前的东家：广州市</div>
+                </div>)
+            }
+        }, {
+            title: '三、总结', context: () => {
+                return (<div>如今，作为前端开发者已经正式工作3年了，我想努力熟练掌握前端开发的各项技术</div>)
+            }
+        }]
+
+    return (
+        <div className="parallax">
+            {aboutMeArr.map((item, index) => {
+                return (
+                    <div key={index} className='parallax-box'>
+                        <div className={`parallax-title${index + 1}`}>{item.title}</div>
+                        <div className={`parallax-context${index + 1}`}>{item.context()}</div>
+                    </div>)
+
+            })}
+        </div>
+    )
+}
