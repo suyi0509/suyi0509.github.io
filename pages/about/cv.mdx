@@ -1,8 +1,242 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Space, Image, Row, Col } from 'antd';
 import Link from "next/link"
 import { SueFrame } from "../../components/index"
 
+
 export default function index({ Component, pageProps }) {
-    return 'cv'
+    useEffect(() => {
+        window.addEventListener('scroll', function () {
+            var scrollPosition = window.scrollY;
+            let index = 0
+            if (scrollPosition >= 100 && scrollPosition < 200) {
+                index = 1
+            } else if (scrollPosition >= 200 && scrollPosition < 1100) {
+                index = 2
+            } else if (scrollPosition >= 1100 && scrollPosition < 1500) {
+                index = 3
+            } else if (scrollPosition >= 1500) {
+                index = 4
+            }
+            console.log(index, 'index')
+            const strArr = setElements(4)
+            let elements = document.querySelectorAll(strArr.elements.toString());
+            let boxElements = document.querySelectorAll(strArr.boxElements.toString());
+            elements.forEach(element => element.classList.remove('active'));
+            boxElements.forEach(element => element.classList.remove('active'));
+            for (let i = 0; i < index && i < elements.length; i++) {
+                elements[i].classList.add('active');
+                boxElements[i].classList.add('active');
+            }
+        });
+    }, [])
+
+    const setElements = (num) => {
+        const obj = { elements: [], boxElements: [] }
+        for (let i = 1; i <= num; i++) {
+            obj.elements.push(`.parallax-title${i}`)
+            obj.boxElements.push(`.parallax-context${i}`)
+        }
+        return obj
+    }
+
+    const aboutMeArr = [
+        {
+            title: '一、个人信息', context: () => {
+                const arr = [
+                    { title: '姓名', value: '苏泳怡' },
+                    { title: '性别', value: '女' },
+                    { title: '出生年月', value: '1999.06' },
+                    { title: '学位', value: '学士' },
+                    { title: '工作年限', value: '3年' },
+                    { title: '电子邮箱', value: 'suyongyi_working@163.com' },
+                    { title: '所在地', value: '广州' },
+                ]
+
+                const arr1 = [{ h1: '', value: '广东理工学院' }]
+                return (<div>
+                    <div className='cv_box'>
+                        {arr.map((item, index) => {
+                            return <Space key={index} className='cv_item '>
+                                <Space className='cv_item_title'>{item.title}:</Space>
+                                <Space className='cv_item_value'>{item.value}</Space>
+                            </Space>
+                        })}
+                    </div>
+                    <div className='font-semibold pt-8'>教育经历</div>
+                    <Space className='py-4 flex justify-between pr-20'>
+                        <div>广东理工学院</div>
+                        <div>本科</div>
+                        <div>2017-2021</div>
+                    </Space>
+                    <Space className='mt-2 text-sm'>主修科目：C++、Java、mySQL、计算机组成原理、算法设计与分析、计算机网络</Space>
+                    <Space className='mt-2 text-sm'>荣誉/奖项：新型实用专利、校级一等奖学金(4年)、知识竞赛一等奖、十佳助理班主任</Space>
+                </div>)
+            }
+        }, {
+            title: '二、专业技能', context: () => {
+                const arr = [
+                    {
+                        title: '基础知识', context: [
+                            '· 熟悉 HTML5/CSS3 ,能够编写高效、语义化的浏览器页面',
+                            '· 深入学习 JavaScript ES6+ 语法，了解 mdn 规范',
+                            '· 熟练使用 TypeScript 进行静态类型检查，提高代码可维护性',
+                            '· 熟练使用 Webpack/Vite ,了解 Rollup 等打包工具，增强模块化'
+                        ]
+                    },
+                    {
+                        title: '前端框架与库', context: [
+                            '· 熟悉 React/Vue2/Vue3/Taro ,了解 Angular 等主流前端框架，了解其组件化开发思想',
+                            '· 熟悉 Mobx/Redux/Vuex 等状态管理库，能够处理复杂得前端应用状态',
+                            '· 熟练 React Hooks/Vue Composition API/Taro API 等，提升代码复用性和可维护性',
+                            '· 熟悉 Antd/Element/Taro-UI/OSSA-UI 等UI库，定制化企业级组件库'
+                        ]
+                    },
+                    {
+                        title: '响应式布局与移动端适配', context: [
+                            '· 熟悉使用 Flexbox/Grid 等CSS3新特性进行复杂布局设计和响应式开发',
+                            '· 熟练掌握移动端开发技巧，如视口单位（vw/vh）、媒体查询以及移动端调试工具',
+                            '· 有过移动端项目经验，熟悉各种移动端浏览器兼容性问题及解决方案'
+                        ]
+                    },
+                    {
+                        title: '性能优化与调试', context: [
+                            '· 了解前端性能优化的各种策略，如代码分割、懒加载、图片压缩、缓存等',
+                            '· 掌握前端网络优化知识，如 HTTP/2 协议、CDN、缓存策略等',
+                            '· 熟练使用 Chrome DevTools 等浏览器开发者工具进行性能分析和调试'
+                        ]
+                    },
+                    {
+                        title: '跨浏览器兼容性', context: [
+                            '· 熟悉各种主流浏览器的兼容性问题及解决方案',
+                            '· 了解使用 Autoprefixer 等工具自动添加浏览器前缀，提高CSS兼容性',
+                            '· 能够使用 Polyfill 等工具解决老旧浏览器对新特性的支持问题'
+                        ]
+                    },
+                    {
+                        title: '版本控制与团队协作', context: [
+                            '· 熟练使用 Git/SVN 进行版本管理，熟悉 Git 工作流和分支管理',
+                            '· 了解使用 Monorepo 进行多包管理，使用 pnpm 管理依赖和包安装',
+                        ]
+                    }
+                ]
+                return (<div>
+                    {arr.map((item, index) => {
+                        return (
+                            <div key={index}>
+                                <div className='font-semibold pt-8 pb-2'>{item.title}</div>
+                                {item.context.map((xitem, xindex) => {
+                                    return <div key={xindex}>{xitem}</div>
+                                })}
+                            </div>
+                        )
+
+                    })}
+                </div>)
+            }
+        }, {
+            title: '三、工作经历', context: () => {
+                const arr = [
+                    {
+                        title: '广州市艾美网络科技有限公司', time: '2022.5 - 至今', grade: 'web高级前端工程师',
+                    },
+                    {
+                        title: '广州市棒谷网络科技有限公司', time: '2021.5-2022.5', grade: 'web中级前端工程师',
+                    },
+                    {
+                        title: '广州市昊链信息科技股份有限公司', time: '2020.5-2021.5', grade: 'web初级前端工程师(实习)',
+                    },
+                ]
+                return (<div>{arr.map((item, index) => {
+                    return <div key={index} className='py-4 flex flex-row justify-between'>
+                        <div className='basis-1/6 text-center'>{item.time}</div>
+                        <div className='basis-3/6 text-center'>{item.title}</div>
+                        <div className='basis-2/6 text-center'>{item.grade}</div>
+                    </div>
+                })}</div>)
+            }
+        }, {
+            title: '四、项目经历', context: () => {
+                const bgColor = ['bg-blue-500', 'bg-pink-500', 'bg-cyan-500', 'bg-purple-500', 'bg-blue-800', 'bg-sky-500', 'bg-purple-800', 'bg-rose-500']
+                const arr = [{
+                    title: '企业级商城一站式服务',
+                    company: '艾美科技',
+                    context: <div>该项目提供了一站式商城平台, 多个操作平台，给予项目赋能，目前定制化C端有8个，支持<span className='text-pink-400 font-semibold px-1'>进销存/分销/导购/邀请有礼/数据分析/营销活动/订单管理</span> 等功能，真正实现一站式店铺管理。</div>,
+                    describe: [
+                        { groupname: '商家管理', context: 'B端小程序、PC端管理系统' },
+                        { groupname: '用户商城', context: '大众C端(电玩通)、定制化c端(超能星客、咪哒酒馆等)' },
+                        { groupname: '赋能平台', context: '导购分销(员工C端)、艾美运萌客服(客服端WebSocket)' },
+                        { groupname: '配套硬件', context: '收银台(H5嵌入)' },],
+                    use: ['Taro', 'React', 'Taro-UI(B端)', 'OSSA-UI(C端)', 'antd(PC端)', 'antd-mobile(H5端)', 'Echarts'],
+                    achievement: [
+                        '1. 整合多个小程序相似的功能组件，搭建部门前端组件库，提升开发效率，降低开发成本',
+                    ],
+                }, {
+                    title: 'Davinci可视化平台(二开)',
+                    company: '棒谷科技',
+                    context: <div> Davinci 提供一站式数据可视化解决方案的平台，用户只需在可视化页面上简单配置即可,支持<span className='text-pink-400 font-semibold px-1'>高级交互/行业分析/模式探索/社交智能</span>等可视化功能。本人负责该平台所有业务需求，重点开发该平台与公司其他系统之间的嵌入式接入，以及基于 Davinci 平台对老BI系统的模板重构</div>,
+                    use: ['React16', 'TypeScript', 'antd', 'ECharts', 'Jenkins'],
+                    achievement: [
+                        '1. 实现 Davinci 系统支持 cas 登录，并通过获取用户信息完成前端权限控制;',
+                        '2. 实现 Davinci 与外部平台之间的联动性，支持表格数据跳转系统搜索查询',
+                        '3. 在 Davinci 架构上封装业务组件，开发老 B1、参谋页面模板，实现 10 分钟发布;',
+                        '4. 使用 ECharts 扩展图表库，兼容后端新型 cubejs 网络协议，实现3种数据源类型接入。',
+                    ],
+                }, {
+                    title: 'ABI工具服务平台',
+                    company: '棒谷科技',
+                    context: <div> ABI 是一个基于云计算的灵活的自助 BI 工具服务平台，用户只需要通过拖拉拽等方式，自动生成您想要的
+                        各种可视化图表。本人参与平台性能优化、代码优化、实现 200ms 内渲染完成</div>,
+                    use: ['Angular', 'Vue 2.x', 'Element-Ul', 'ECharts', 'ng-zorro-antd '],
+                    achievement: [
+                        '1.优化前端内存性能、增强页面体验，封装公共方法，定义公共变量常量，提高代码可维护性;',
+                        '2.优化平台配色方案，整体风格页面进行改版升级，提升用户体验;',
+                        '3.基于友盟对平台进行全埋点服务，实现对用户流量、功能使用频率进行分析。',
+                    ],
+                }]
+                return (<div>{
+                    arr.map((item, index) => {
+                        return (
+                            <div key={index} className='py-16 border-b border-gray-300'>
+                                <div className='flex justify-between pb-4'>
+                                    <div className='font-semibold text-lg'>{item.title}</div>
+                                    <div className='text-sm'>--{item.company}</div>
+                                </div>
+                                <div className='mt-2 mb-5'>{item.context}</div>
+                                {item.describe && item.describe.map((xitem, xindex) => {
+                                    return <div key={xindex} className='flex'>
+                                        <div className='mr-2'>{xitem.groupname}:</div>
+                                        <div className=''>{xitem.context}</div>
+                                    </div>
+                                })}
+                                <div className='flex py-6'>
+                                    {item.use.map((xitem, xindex) => {
+                                        return <div key={xindex} className={`px-2 py-px text-sm ${bgColor[xindex]} text-white`}>{xitem}</div>
+                                    })
+                                    }
+                                </div>
+                                <div className='my-2 font-semibold'>工作与成就:</div>
+                                <div>{item.achievement.map((xitem, xindex) => {
+                                    return <div key={xindex} className={`py-px`}>{xitem}</div>
+                                })}</div>
+                            </div>
+                        )
+                    })
+
+                }</div>)
+            }
+        }]
+
+    return (
+        <div className="parallax">
+            {aboutMeArr.map((item, index) => {
+                return (
+                    <div key={index} className='parallax-box'>
+                        <div className={`parallax-title${index + 1}`}>{item.title}</div>
+                        <div className={` parallax-context${index + 1}`}>{item.context()}</div>
+                    </div>)
+
+            })}
+        </div>
+    )
 }

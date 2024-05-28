@@ -27,13 +27,13 @@
     "title": "关于",
     "items": {
       "cv": {
-        "type": "doc",
+        "type": "page",
         "title": "我的简历",
         "href": "/about/cv"
       },
       "me": {
-        "type": "doc",
-        "title": "关于我",
+        "type": "page",
+        "title": "年总结",
         "href": "/about/me"
       }
     }
