@@ -170,6 +170,7 @@ export default function index({ Component, pageProps }) {
                     use: ['Taro', 'React', 'Taro-UI(B端)', 'OSSA-UI(C端)', 'antd(PC端)', 'antd-mobile(H5端)', 'Echarts'],
                     achievement: [
                         '1. 整合多个小程序相似的功能组件，搭建部门前端组件库，提升开发效率，降低开发成本',
+                        '...'
                     ],
                 }, {
                     title: 'Davinci可视化平台(二开)',
@@ -203,22 +204,23 @@ export default function index({ Component, pageProps }) {
                                     <div className='text-sm'>--{item.company}</div>
                                 </div>
                                 <div className='mt-2 mb-5'>{item.context}</div>
-                                {item.describe && item.describe.map((xitem, xindex) => {
+                                <div className='mt-2 mb-5'> {item.describe && item.describe.map((xitem, xindex) => {
                                     return <div key={xindex} className='flex'>
                                         <div className='mr-2'>{xitem.groupname}:</div>
                                         <div className=''>{xitem.context}</div>
                                     </div>
-                                })}
+                                })}</div>
+
+                                <div className='my-2 font-semibold'>工作与成就:</div>
+                                <div>{item.achievement.map((xitem, xindex) => {
+                                    return <div key={xindex} className={`py-px`}>{xitem}</div>
+                                })}</div>
                                 <div className='flex py-6'>
                                     {item.use.map((xitem, xindex) => {
                                         return <div key={xindex} className={`px-2 py-px text-sm ${bgColor[xindex]} text-white`}>{xitem}</div>
                                     })
                                     }
                                 </div>
-                                <div className='my-2 font-semibold'>工作与成就:</div>
-                                <div>{item.achievement.map((xitem, xindex) => {
-                                    return <div key={xindex} className={`py-px`}>{xitem}</div>
-                                })}</div>
                             </div>
                         )
                     })
