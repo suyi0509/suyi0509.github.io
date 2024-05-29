@@ -8,5 +8,6 @@
     "visibility":"7.css隐藏元素方式",
     "css3":"8.css3新特性",
     "layoutAndPainting":"9.回流和重绘",
-    "optimize":"10.CSS性能优化"
+    "optimize":"10.CSS性能优化",
+    "transition":"11.过渡动画"
 }

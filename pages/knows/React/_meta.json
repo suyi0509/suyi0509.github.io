@@ -5,5 +5,7 @@
     "event":"4.React事件绑定的方式",
     "lifeCycle":"5.React的生命周期",
     "communication":"6.React组件通信",
-    "higherOrder":"7.高阶组件"
+    "higherOrder":"7.高阶组件",
+    "catch":"8.React捕获异常",
+    "refs":"9.React Refs"
 }

@@ -58,3 +58,90 @@ function WithLogging(WrappedComponent){
 }
 ```
 
+
+### 应用场景
+高阶组件是用来提高代码的可复用性和灵活性，常用于与核心业务无关，但又在多个模块上使用的功能，如：权限控制、日志记录、数据校验、异常处理、统计上报
+
+#### example1
+> 存在一个组件，需要从缓存中获取数据，然后渲染
+
+```jsx
+import React,{ Component } from 'react'
+class MyComponent extends Component { 
+    componentWillMount(){
+        let data = localStorage.getItem('data')
+        this.setState({data})
+    }
+
+    render(){
+        return <div>{this.state.data}</div>
+    }
+}
+
+```
+
+```jsx
+import React, { Component } from 'react'
+
+function withPersistentData(WrappedComponent){
+    return class extends Component{
+        componentWillMount(){
+            let data = localStorage.getItem('data');
+            this.setState({data})
+        }
+    }
+
+    render(){
+        // 通过{...this.props}把传递给当前组件得属性继续传递给包装得组件WrappedComponent
+        return <WrappedComponent data={this.state.data} {...this.props} />
+    }
+}
+
+
+class MyComponent2 extends Component{
+    render(){
+        return <div>{this.props.data}</div>
+    }
+}
+
+const MyComponentWithPersistentData = withPersistentData(MyComponent2)
+```
+
+---
+#### example2
+> 组件渲染性能监控
+
+```jsx
+function withTiming(WrappedComponent){
+    return class extends WrappedComponent{
+        constructor(props){
+            super(props)
+            this.state = 0
+            this.end = 0
+        }
+
+        componentWillMount(){
+            super.componentWillMount && super.componentWillMount()
+            this.start = Date.now()
+        }
+
+        componentDidMount(){
+            super.componentDidMount && super.componentDidMount()
+            this.end = Date.now()
+            console.log(`${WrappedComponent.name}组件渲染时间为${this.end - this.start} ms`)
+        }
+
+        render(){
+            return super.render()
+        }
+    }
+}
+
+class Home extends React.Component{
+    render(){
+        return <div>hello world</div>
+    }
+}
+
+const MyComponentWithTimingData = withTiming(Home)
+```
