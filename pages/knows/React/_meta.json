@@ -11,5 +11,6 @@
     "setState":"10.类组件setState",
     "render":"11.react render",
     "virtualDom":"12.Virtual Dom",
-    "jsxToDom":"13.JSX转换成dom"
+    "jsxToDom":"13.JSX转换成dom",
+    "fiber":"14.Fiber架构"
 }
