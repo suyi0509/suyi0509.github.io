@@ -10,5 +10,6 @@
     "refs":"9.React Refs",
     "setState":"10.类组件setState",
     "render":"11.react render",
-    "virtualDom":"12.Virtual Dom"
+    "virtualDom":"12.Virtual Dom",
+    "jsxToDom":"13.JSX转换成dom"
 }
