@@ -106,13 +106,13 @@ export default function index({ Component, pageProps }) {
                             '· 熟练使用 Chrome DevTools 等浏览器开发者工具进行性能分析和调试'
                         ]
                     },
-                    {
-                        title: '跨浏览器兼容性', context: [
-                            '· 熟悉各种主流浏览器的兼容性问题及解决方案',
-                            '· 了解使用 Autoprefixer 等工具自动添加浏览器前缀，提高CSS兼容性',
-                            '· 能够使用 Polyfill 等工具解决老旧浏览器对新特性的支持问题'
-                        ]
-                    },
+                    // {
+                    //     title: '跨浏览器兼容性', context: [
+                    //         '· 熟悉各种主流浏览器的兼容性问题及解决方案',
+                    //         '· 了解使用 Autoprefixer 等工具自动添加浏览器前缀，提高CSS兼容性',
+                    //         '· 能够使用 Polyfill 等工具解决老旧浏览器对新特性的支持问题'
+                    //     ]
+                    // },
                     {
                         title: '版本控制与团队协作', context: [
                             '· 熟练使用 Git/SVN 进行版本管理，熟悉 Git 工作流和分支管理',
@@ -138,14 +138,14 @@ export default function index({ Component, pageProps }) {
             title: '三、工作经历', context: () => {
                 const arr = [
                     {
-                        title: '广州市艾美网络科技有限公司', time: '2022.5 - 至今', grade: 'web高级前端工程师',
+                        title: '广州市艾美网络科技有限公司', time: '2022.5 - 至今', grade: 'web前端工程师',
                     },
                     {
-                        title: '广州市棒谷网络科技有限公司', time: '2021.5-2022.5', grade: 'web中级前端工程师',
+                        title: '广州市棒谷网络科技有限公司', time: '2021.5-2022.5', grade: 'web前端工程师',
                     },
-                    {
-                        title: '广州市昊链信息科技股份有限公司', time: '2020.5-2021.5', grade: 'web初级前端工程师(实习)',
-                    },
+                    // {
+                    //     title: '广州市昊链信息科技股份有限公司', time: '2020.5-2021.5', grade: 'web初级前端工程师(实习)',
+                    // },
                 ]
                 return (<div>{arr.map((item, index) => {
                     return <div key={index} className='py-4 flex flex-row justify-between'>
@@ -170,7 +170,7 @@ export default function index({ Component, pageProps }) {
                     use: ['Taro', 'React', 'Taro-UI(B端)', 'OSSA-UI(C端)', 'antd(PC端)', 'antd-mobile(H5端)', 'Echarts'],
                     achievement: [
                         '1. 整合多个小程序相似的功能组件，搭建部门前端组件库，提升开发效率，降低开发成本',
-                        '...'
+                        '2. 负责小程序 导购分销、进销存、数据分析、邀请有礼等商家端功能，实现一站式管理系统'
                     ],
                 }, {
                     title: 'Davinci可视化平台(二开)',

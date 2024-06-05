@@ -13,5 +13,6 @@
     "virtualDom":"12.Virtual Dom",
     "jsxToDom":"13.JSX转换成dom",
     "fiber":"14.Fiber架构",
-    "diff":"15.diff算法"
+    "diff":"15.diff算法",
+    "":"16.react渲染优化"
 }
