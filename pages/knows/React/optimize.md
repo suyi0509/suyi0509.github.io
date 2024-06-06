@@ -18,3 +18,13 @@ if (this._compositeType === CompositeTypes.PureClass) {
 
 
 ### React.memo
+React.memo用来缓存组件的渲染，避免不必要的更新，其实也是一个高阶组件，与PureComponent十分类似，不同的是，React.memo只能用于函数组件
+
+```jsx
+import { memo } from 'react';
+function Button(props) {
+ // Component code
+}
+
+export default memo(Button);
+```
