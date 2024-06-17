@@ -14,5 +14,8 @@
     "jsxToDom":"13.JSX转换成dom",
     "fiber":"14.Fiber架构",
     "diff":"15.diff算法",
-    "optimize":"16.react渲染优化"
+    "optimize":"16.react渲染优化",
+    "router":"17.React router",
+    "redux":"18. Redux",
+    "middleware":"19. middleware"
 }
