@@ -72,4 +72,27 @@ export default function applyMiddleware(...middlewares) {
     }
 }
 ```
-所有中间件被放入一个数组chain中，然后嵌套执行，最后执行store.dispatch; middlewareAPI拿到了 getState、dispatch两个方法
+所有中间件被放入一个数组chain中，然后嵌套执行，最后执行store.dispatch; middlewareAPI拿到了 getState、dispatch两个方法。在redux-thunk中，内部会将dispatch进行一个判断，然后执行该操作
+```jsx
+function patchThunk(store){
+    let next = store.dispatch;
+    function dispatchAndThunk(action) {
+        if (typeof action === "function") {
+            action(store.dispatch, store.getState);
+        } else {
+            next(action);
+        }
+    }
+    store.dispatch = dispatchAndThunk;
+}
+
+// 日志输出原理
+let next = store.dispatch
+function dispatchAndLog(action){
+    console.log("dispatching:", addAction(10));
+    next(addAction(5));
+    console.log("new state:", store.getState());
+}
+
+store.dispatch = dispatchAndLog;
+```

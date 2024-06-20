@@ -17,5 +17,7 @@
     "optimize":"16.react渲染优化",
     "router":"17.React router",
     "redux":"18. Redux",
-    "middleware":"19. middleware"
+    "middleware":"19. middleware",
+    "immutable":"20. immutable",
+    "ssr":"21. ssr"
 }
