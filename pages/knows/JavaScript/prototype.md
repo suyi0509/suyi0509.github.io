@@ -20,9 +20,9 @@ class Person {
 }
 
 const person = new Person('dsad')
-console.log(a.name) // dsad
-// 在这里我们叫A为构造函数,其实Class（类）只是一个语法糖，function同样可以实现该功能
-// a 是被new出来的，是经过实例化的，因此我们叫a为实例对象
+console.log(person.name) // dsad
+// 在这里我们叫Person为构造函数,其实Class（类）只是一个语法糖，function同样可以实现该功能
+// person 是被new出来的，是经过实例化的，因此我们叫person为实例对象
 ```
 
 - Function
@@ -32,8 +32,8 @@ function Person (name){
 }
 
 const person = new Person('dsad')
-console.log(a.name) // dsad
-// 在这里我们同样叫A为构造函数，a为实例对象
+console.log(person.name) // dsad
+// 在这里我们同样叫Person为构造函数，person为实例对象
 ```
 ---
 
