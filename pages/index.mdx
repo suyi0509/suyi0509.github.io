@@ -45,7 +45,7 @@ export default function Home({ Component, pageProps }) {
                     </Link>
                 })}
             </div>
-            <div className='text-center flex justify-center mt-16'>
+            <div className='text-center flex justify-center mt-16 flex-wrap'>
                 {skills.map((item) => <div className={`text-white ${item.bgColor} px-1 text-sm`} key={item.text}>{item.text}</div>)}
             </div>
         </div>

@@ -64,7 +64,7 @@ export default function index({ Component, pageProps }) {
                         })}
                     </div>
                     <div className='font-semibold pt-8'>教育经历</div>
-                    <Space className='py-4 flex justify-between pr-20'>
+                    <Space className='py-4 flex justify-between'>
                         <div>广东理工学院</div>
                         <div>本科</div>
                         <div>2017-2021</div>
@@ -199,7 +199,7 @@ export default function index({ Component, pageProps }) {
                     arr.map((item, index) => {
                         return (
                             <div key={index} className='py-16 border-b border-gray-300'>
-                                <div className='flex justify-between pb-4'>
+                                <div className='flex justify-between pb-4 items-center'>
                                     <div className='font-semibold text-lg'>{item.title}</div>
                                     <div className='text-sm'>--{item.company}</div>
                                 </div>
@@ -215,7 +215,7 @@ export default function index({ Component, pageProps }) {
                                 <div>{item.achievement.map((xitem, xindex) => {
                                     return <div key={xindex} className={`py-px`}>{xitem}</div>
                                 })}</div>
-                                <div className='flex py-6'>
+                                <div className='flex py-6 flex-wrap'>
                                     {item.use.map((xitem, xindex) => {
                                         return <div key={xindex} className={`px-2 py-px text-sm ${bgColor[xindex]} text-white`}>{xitem}</div>
                                     })
