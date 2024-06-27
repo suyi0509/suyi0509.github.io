@@ -2,7 +2,6 @@ import React from 'react';
 import { Space, Image } from 'antd';
 
 const Logo = () => {
-  const a: string = '1';
   return (
     <Space>
       <Image

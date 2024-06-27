@@ -22,8 +22,8 @@ string、number、boolean、null、undefined、symbol(ES6新增)、bigInt(ES6新
 - 基本数据类型 -> 栈中
 - 引用数据类型 -> 堆中
 
-> 基本数据类型由于体量小，在栈中直接保存数据，变量定义的时候都会新开一块地，对应不同的内存地址
-> 而引用数据类型由于体量较大，在栈中存放的是堆的内存地址， 两个obj可能使用一个内存地址
+> - 基本数据类型由于体量小，在栈中直接保存数据，变量定义的时候都会新开一块地，对应不同的内存地址
+> - 而引用数据类型由于体量较大，在栈中存放的是堆的内存地址， 两个obj可能使用一个内存地址
 
 ### 判断数据类型的方式(四种)
 #### 1.typeof
@@ -104,6 +104,7 @@ function myInstanceof(left, right) {
 - 记住 查找元素内容是在原型链上查找的，所以等于person.constructor === Person
 
 ##### 特殊点1 constructor可检测基本数据类型，也可检测引用数据类型(null、undefined除外)
+当检查基本数据类型时，JavaScript 会尝试将该基本数据类型隐式转换为对象（称为装箱转换或对象包装），然后访问该对象的 constructor 属性。constructor可检测基本数据类型，但是并不可靠。
 - (123).constructor === Number // true
 - (true).constructor === Boolean // true
 - ({}).constructor === Object // true

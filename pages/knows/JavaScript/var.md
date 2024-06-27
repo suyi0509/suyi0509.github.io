@@ -26,9 +26,9 @@
 - symbol：用于创建唯一的标识符。
 - Proxy和Reflect：用于实现对象的代理操作。
 
-> 在浏览器环境中，顶层对象是window
-> 在Node.js环境中，顶层对象是global
+> - 在浏览器环境中，顶层对象是window
+> - 在Node.js环境中，顶层对象是global
 
-> 在es6中某些情况，全局变量是和顶层对象属性脱钩的
-> 顶层对象的属性：var， function
-> 不属于顶层对象的属性： let， const， class
+> - 在es6中某些情况，全局变量是和顶层对象属性脱钩的
+> - 顶层对象的属性：var， function
+> - 不属于顶层对象的属性： let， const， class
