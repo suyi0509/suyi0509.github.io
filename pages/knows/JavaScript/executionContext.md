@@ -203,9 +203,9 @@ function f1(){
 f1()
 ```
 
--  ECStack.push(<f1> functionContext)
--  ECStack.push(<f2> functionContext)
--  ECStack.push(<f3> functionContext)
+-  ECStack.push(< f1> functionContext)
+-  ECStack.push(< f2> functionContext)
+-  ECStack.push(< f3> functionContext)
 -  // ---------执行f3，输出'f3'
 -  ECStack.pop()  // f3弹出
 -  ECStack.pop()  // f2弹出
@@ -238,17 +238,17 @@ checkScope()()
 ```
 
 - case1
-> - ECStack.push(<checkScope> functionContext)
-> - ECStack.push(<f> functionContext)
+> - ECStack.push(< checkScope> functionContext)
+> - ECStack.push(< f> functionContext)
 > - 执行完成 f()
 > - ECStack.pop()  // f弹出
 > - ECStack.pop()  // checkScope弹出
 
 
 - case2
-> - ECStack.push(<checkScope> functionContext)
+> - ECStack.push(< checkScope> functionContext)
 > - ECStack.pop()  // checkScope弹出
-> - ECStack.push(<f> functionContext)
+> - ECStack.push(< f> functionContext)
 > - ECStack.pop()  // f弹出
 
 这就是我们的执行上下文栈
