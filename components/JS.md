@@ -61,7 +61,7 @@ js是采用的静态作用域，是在定义的时候就决定了, js里面的�
 ```
 ---
 
-## 5. 执行上下文
+## 5. 执行上下文 - 6.变量对象 - 7.作用域链
 ```ts
 js引擎并不是一行行执行的，而是一段段的分析执行。当执行一段代码，先构造可执行上下文。
 可执行上下文分为3种：全局执行上下文，函数执行上下文，eval函数执行上下文
@@ -89,9 +89,78 @@ js引擎并不是一行行执行的，而是一段段的分析执行。当执行
 执行过程：
 1. 函数被创建，先保存作用域链
 2. 创建函数执行上下文，并压入执行上下文栈
+3. 函数准备工作，创建作用域链[[scope]]
+4. arguments创建活动对象，初始化变量对象
+5. 活动对象压⼊ checkScope 作⽤域链顶端
 
+准备工作完成后
+1. 开始执⾏函数，修改AO的属性值
+2. 执行函数，查找值， 执行完毕，函数上下文从执行栈中弹出
+```
+
+---
+
+##  8.this
+```ts
 
 ```
+---
+
+##  9.执行上下文总结分析
+[执行上下文总结分析]('../knows/JavaScript/executionContextSummary.md')
+
+---
+
+##  10.闭包
+```ts
+- 闭包是指有权访问另一个函数作用域的变量的函数
+也就是说： 当一个函数内部创建了另一个函数，并且这个内部函数引用了外部函数的变量时，就形成了一个闭包
+
+- 使用场景：
+1. 闭包柯里化，避免频繁调用函数，又能轻松重用（长方形计算面积，普通传长宽，如果固定宽为10，则可以写成函数柯里化，传width返回height参数的函数）
+2. 封装私有变量
+
+```
+
+##  11.DOM   12.BOM
+```ts
+DOM(文档对象模型)，DOM节点包含着其他类型的节点,如content文本节点，classname、title属性节点。操作页面元素（W3C规范）
+
+一、节点操作
+- 创建节点
+  document.createElement("div")
+- 查询节点
+  document.querySelect('.element' | '#element' | 'div' ), document.getElementById('id')
+- 更新节点
+  查询节点后，更改节点-p.innerHtml = 'ABC'
+- 添加节点
+  创建节点后，插入节点-list.appendChild(js);
+- 删除节点
+  获取删除节点的父节点- child.parentElement， 删除节点- parent.removeChild(child)
+
+---
+BOM(浏览器对象模型)，提供了与浏览器窗口交互的对象，如：页面前进后退，刷新，窗口变化，获取用户一些信息：分辨率（不规范，兼容性差）
+
+核心：Window对象，浏览器一个实例
+
+一、location
+- href：完整url：http://www.baidu.com:8080/s?wd=js#contents
+- protocal：协议- http / https
+- host：服务器名称：端口号 - www.baidu.com:8080
+- hostname： 服务器名称 - www.baidu.com
+- port： 端口号-8080
+- pathname：路径-'/s'
+- search：查询项 - ?wd=js
+- hash： url#后的字符，#contents
+
+二、history
+history.go(3) // 向前跳转三个记录
+history.go(-1) // 向后跳转一个记录
+history.forward() // 向前跳转一个页面
+history.back() // 向后跳转一个页面
+
+```
+
 
 ### 数据结构
 

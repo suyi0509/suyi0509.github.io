@@ -18,10 +18,6 @@
     "type": "page",
     "title": "项目"
   },
-  "interview": {
-    "type": "page",
-    "title": "面试宝典"
-  },
   "about": {
     "type": "menu",
     "title": "关于",

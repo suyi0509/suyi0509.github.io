@@ -51,7 +51,7 @@ const getAreaComputer = getTenWidthArea(20)
 ```
 2. 场景2：闭包模拟私有方法
 ```js
-var makeCounter = (function(){
+var makeCounter = function(){
     var privateCounter = 0;
     function changeBy(val){
         privateCounter += val
@@ -67,7 +67,7 @@ var makeCounter = (function(){
             return privateCounter
         }
     }
-})()
+}
 
 var counter1 = makeCounter()
 var counter2 = makeCounter()
