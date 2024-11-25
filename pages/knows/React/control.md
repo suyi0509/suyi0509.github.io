@@ -42,7 +42,7 @@ const button = <button handel={handleClick}></button>
 3. 所以会先执行原生事件，然后再处理React事件
 4. 最后真正执行document上挂载的事件
 
-[图片](../../../public/react1.png)
+![图片](../../../public/react1.png)
 
 - 阻止合成事件间得冒泡，用e.stopPropagation()
 - 阻止合成事件与最外层document上的事件间的冒泡用e.nativeEvent.stopImmediatePropagation()
