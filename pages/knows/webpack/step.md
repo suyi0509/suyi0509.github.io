@@ -9,7 +9,7 @@
    
 3. 输出流程：对编译后的Module组合成Chunk，把Chunk转换成文件，输出到文件系统
 
-[图片](../../../public/webpack2.png)
+![图片](../../../public/webpack2.png)
 
 ---
 

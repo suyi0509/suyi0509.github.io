@@ -2,7 +2,7 @@
 
 > plugin赋予了各种功能，如打包优化、资源管理、环境变量等等，他们会运行在webpack的不同阶段（钩子/生命周期），目的就是解决loader无法实现的事情，plugin贯穿整个webpack编译
 
-[图片](../../../public/webpack3.png)
+![图片](../../../public/webpack3.png)
 
 
 ### 配置方式

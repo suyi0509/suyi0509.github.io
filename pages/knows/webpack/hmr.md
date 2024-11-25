@@ -23,7 +23,7 @@ if(module.hot){
 ```
 
 1. 实现原理
-[图片](../../../public/webpack1.png)
+![图片](../../../public/webpack1.png)
 
 - Webpack Compile：将JS源码编译成bundle.js
 - HMR Server：用于将热更新的文件输出给HMR Runtime
